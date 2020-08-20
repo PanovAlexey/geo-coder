@@ -1,0 +1,38 @@
+{
+    "name": "codeblog.pro/geocoder",
+    "description": "The geocoder package helps to determine the coordinates by an address or to get the address by the coordinates. Supports multiple providers.",
+    "keywords": [
+        "api", "wrapper", "geo", "geocoder", "geocoding", "yandex", "google", "coordinates", "geographical-coordinates"
+    ],
+    "homepage": "https://github.com/PanovAlexey/geocoder",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Panov Alexey",
+            "email": "panov@codeblog.pro",
+            "homepage": "https://codeblog.pro/",
+            "role": "Owner"
+        }
+    ],
+    "require": {
+        "php" : ">=7.4",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0.0",
+        "phpstan/phpstan": "^0.12.36",
+        "nunomaduro/phpinsights": "^1.14",
+        "phpunit/php-code-coverage": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CodeblogPro\\GeoCoder\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CodeblogPro\\GeoCoder\\Tests\\": "tests/"
+        }
+    }
+}
