@@ -4,19 +4,17 @@ declare(strict_types=1);
 
 namespace CodeblogPro\GeoCoder\Location;
 
-use CodeblogPro\GeoCoder\Coordinate\CoordinateInterface;
+use CodeblogPro\GeoCoder\Coordinates\CoordinatesInterface;
 
 interface LocationInterface
 {
     public function getProvidedBy(): string;
 
-    public function getCoordinates(): ?CoordinateInterface;
+    public function getCoordinates(): ?CoordinatesInterface;
 
     public function getCountry(): ?Country;
 
     public function getRegion(): ?Region;
-
-    public function getCity(): ?City;
 
     public function getStreetName(): ?string;
 

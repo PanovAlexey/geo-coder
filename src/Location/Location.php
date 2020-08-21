@@ -4,25 +4,23 @@ declare(strict_types=1);
 
 namespace CodeblogPro\GeoCoder\Location;
 
-use CodeblogPro\GeoCoder\Coordinate\CoordinateInterface;
+use CodeblogPro\GeoCoder\Coordinates\CoordinatesInterface;
 
 class Location implements LocationInterface
 {
     private string $providedBy;
-    private ?CoordinateInterface $coordinates;
+    private ?CoordinatesInterface $coordinates;
     private ?Country $country;
     private ?Region $region;
-    private ?City $city;
     private ?string $streetName;
     private ?string $locality;
     private ?string $postalCode;
 
     public function __construct(
         string $providedBy,
-        CoordinateInterface $coordinates = null,
+        CoordinatesInterface $coordinates = null,
         Country $country = null,
         Region $region = null,
-        City $city = null,
         string $locality = null,
         string $streetName = null,
         string $postalCode = null
@@ -31,13 +29,12 @@ class Location implements LocationInterface
         $this->coordinates = $coordinates;
         $this->country = $country;
         $this->region = $region;
-        $this->city = $city;
         $this->locality = $locality;
         $this->streetName = $streetName;
         $this->postalCode = $postalCode;
     }
 
-    public function getCoordinates(): CoordinateInterface
+    public function getCoordinates(): CoordinatesInterface
     {
         return $this->coordinates;
     }
@@ -50,11 +47,6 @@ class Location implements LocationInterface
     public function getRegion(): Region
     {
         return $this->region;
-    }
-
-    public function getCity(): City
-    {
-        return $this->city;
     }
 
     public function getLocality(): string
@@ -84,10 +76,6 @@ class Location implements LocationInterface
             $address .= ', ' . $this->getRegion();
         }
 
-        if (!empty($this->getCity())) {
-            $address .= ', ' . $this->getCity();
-        }
-
         if (!empty($this->getLocality())) {
             $address .= ', ' . $this->getLocality();
         }
@@ -102,15 +90,13 @@ class Location implements LocationInterface
     public function toArray(): array
     {
         return [
-            'providedBy' => $this->providedBy,
-            'latitude' => (!empty($this->getCoordinates()) ? $this->getCoordinates()->getLatitude() : null,
-            'longitude' => (!empty($this->getCoordinates()) ? $this->getCoordinates()->getLongitude() : null,
+            'provided_by' => $this->providedBy,
+            'latitude' => (!empty($this->getCoordinates())) ? $this->getCoordinates()->getLatitude() : null,
+            'longitude' => (!empty($this->getCoordinates())) ? $this->getCoordinates()->getLongitude() : null,
             'country_name' => $this->getCountry()->getName(),
             'country_code' => $this->getCountry()->getCode(),
             'region_name' => $this->getRegion()->getName(),
             'region_code' => $this->getRegion()->getCode(),
-            'city_name' => $this->getCity()->getName(),
-            'city_code' => $this->getCity()->getCode(),
             'street_name' => $this->getStreetName(),
             'postal_code' => $this->getPostalCode(),
             'locality' => $this->getLocality()
