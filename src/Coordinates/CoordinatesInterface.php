@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace CodeblogPro\GeoCoder\Coordinate;
+namespace CodeblogPro\GeoCoder\Coordinates;
 
-interface CoordinateInterface
+interface CoordinatesInterface
 {
     public function getLatitude(): float;
 
