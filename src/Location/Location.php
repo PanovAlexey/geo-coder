@@ -34,32 +34,32 @@ class Location implements LocationInterface
         $this->postalCode = $postalCode;
     }
 
-    public function getCoordinates(): CoordinatesInterface
+    public function getCoordinates(): ?CoordinatesInterface
     {
         return $this->coordinates;
     }
 
-    public function getCountry(): Country
+    public function getCountry(): ?Country
     {
         return $this->country;
     }
 
-    public function getRegion(): Region
+    public function getRegion(): ?Region
     {
         return $this->region;
     }
 
-    public function getLocality(): string
+    public function getLocality(): ?string
     {
         return $this->locality;
     }
 
-    public function getStreetName(): string
+    public function getStreetName(): ?string
     {
         return $this->streetName;
     }
 
-    public function getPostalCode(): string
+    public function getPostalCode(): ?string
     {
         return $this->postalCode;
     }
@@ -116,5 +116,4 @@ class Location implements LocationInterface
 
         return new Coordinates($latitude, $longitude);
     }
-
 }
