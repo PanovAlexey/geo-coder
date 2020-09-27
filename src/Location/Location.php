@@ -12,18 +12,18 @@ class Location implements LocationInterface
     private ?CoordinatesInterface $coordinates;
     private ?Country $country;
     private ?Region $region;
-    private ?string $streetName;
-    private ?string $locality;
-    private ?string $postalCode;
+    private string $streetName;
+    private string $locality;
+    private string $postalCode;
 
     public function __construct(
         string $providedBy,
         CoordinatesInterface $coordinates = null,
         Country $country = null,
         Region $region = null,
-        string $locality = null,
-        string $streetName = null,
-        string $postalCode = null
+        string $locality = '',
+        string $streetName = '',
+        string $postalCode = ''
     ) {
         $this->providedBy = $providedBy;
         $this->coordinates = $coordinates;
@@ -49,17 +49,17 @@ class Location implements LocationInterface
         return $this->region;
     }
 
-    public function getLocality(): ?string
+    public function getLocality(): string
     {
         return $this->locality;
     }
 
-    public function getStreetName(): ?string
+    public function getStreetName(): string
     {
         return $this->streetName;
     }
 
-    public function getPostalCode(): ?string
+    public function getPostalCode(): string
     {
         return $this->postalCode;
     }
