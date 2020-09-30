@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CodeblogPro\GeoCoder;
 
-use CodeblogPro\GeoCoder\Coordinates\Coordinates;
+use CodeblogPro\GeoCoordinates\Coordinates;
 use CodeblogPro\GeoCoder\Location\LocationInterface;
 use CodeblogPro\GeoCoder\Providers\ProviderInterface;
 

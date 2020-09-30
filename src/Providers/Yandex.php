@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace CodeblogPro\GeoCoder\Providers;
 
-use CodeblogPro\GeoCoder\Coordinates\Coordinates;
-use CodeblogPro\GeoCoder\Coordinates\CoordinatesInterface;
+use CodeblogPro\GeoCoordinates\Coordinates;
+use CodeblogPro\GeoCoordinates\CoordinatesInterface;
 use CodeblogPro\GeoCoder\Exception\InvalidRequestException;
 use CodeblogPro\GeoCoder\Http\HttpClientInterface;
 use CodeblogPro\GeoCoder\Http\Request;
