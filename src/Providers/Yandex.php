@@ -29,7 +29,7 @@ class Yandex extends AbstractProvider implements ProviderInterface
         $this->apiKey = $apiKey;
     }
 
-    public function getLocationByCoordinates(Coordinates $coordinates, string $locale = ''): LocationInterface
+    public function getLocationByCoordinates(CoordinatesInterface $coordinates, string $locale = ''): LocationInterface
     {
         $request = new Request(
             $this->getMethod(),
