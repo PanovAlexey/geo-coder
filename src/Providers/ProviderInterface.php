@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace CodeblogPro\GeoCoder\Providers;
 
 use CodeblogPro\GeoCoordinates\CoordinatesInterface;
-use CodeblogPro\GeoCoder\Location\LocationInterface;
+use CodeblogPro\GeoLocationAddress\LocationInterface;
 
 interface ProviderInterface
 {

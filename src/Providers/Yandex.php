@@ -10,10 +10,10 @@ use CodeblogPro\GeoCoder\Exception\InvalidRequestException;
 use CodeblogPro\GeoCoder\Http\HttpClientInterface;
 use CodeblogPro\GeoCoder\Http\Request;
 use CodeblogPro\GeoCoder\Http\Response;
-use CodeblogPro\GeoCoder\Location\Country;
-use CodeblogPro\GeoCoder\Location\Location;
-use CodeblogPro\GeoCoder\Location\LocationInterface;
-use CodeblogPro\GeoCoder\Location\Region;
+use CodeblogPro\GeoLocationAddress\Country;
+use CodeblogPro\GeoLocationAddress\Region;
+use CodeblogPro\GeoLocationAddress\Location;
+use CodeblogPro\GeoLocationAddress\LocationInterface;
 
 class Yandex extends AbstractProvider implements ProviderInterface
 {
@@ -103,7 +103,7 @@ class Yandex extends AbstractProvider implements ProviderInterface
             : 0;
 
         if ($resultsCount <= 0) {
-            return new Location($this->getName());
+            return new Location();
         }
 
         $generalizingLocationArray = [];
@@ -146,7 +146,6 @@ class Yandex extends AbstractProvider implements ProviderInterface
         }
 
         return new Location(
-            $this->getName(),
             $coordinates,
             $country,
             $region,

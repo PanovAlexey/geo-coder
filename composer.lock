@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "301ca0ea62a6c4cb207a2289f32b035d",
+    "content-hash": "1c538dcfecd39715a8f868420a7b5299",
     "packages": [
         {
             "name": "codeblog.pro/geo-coordinates",
-            "version": "v0.0.1",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PanovAlexey/geo-coordinates.git",
-                "reference": "89b031b81ee17712e31ce7be09a8a1568af8f4ec"
+                "reference": "cb8929fef26bdd5f531cabc8379d876c58435c6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PanovAlexey/geo-coordinates/zipball/89b031b81ee17712e31ce7be09a8a1568af8f4ec",
-                "reference": "89b031b81ee17712e31ce7be09a8a1568af8f4ec",
+                "url": "https://api.github.com/repos/PanovAlexey/geo-coordinates/zipball/cb8929fef26bdd5f531cabc8379d876c58435c6c",
+                "reference": "cb8929fef26bdd5f531cabc8379d876c58435c6c",
                 "shasum": ""
             },
             "require": {
@@ -57,7 +57,61 @@
                 "geo-coordinates",
                 "geographical-coordinates"
             ],
-            "time": "2020-09-30T15:50:01+00:00"
+            "time": "2020-10-01T09:08:34+00:00"
+        },
+        {
+            "name": "codeblog.pro/geo-location-address",
+            "version": "v0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PanovAlexey/geo-location-address.git",
+                "reference": "12ebe4b2b76ace07afd05d60e777ac869dffaf1a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PanovAlexey/geo-location-address/zipball/12ebe4b2b76ace07afd05d60e777ac869dffaf1a",
+                "reference": "12ebe4b2b76ace07afd05d60e777ac869dffaf1a",
+                "shasum": ""
+            },
+            "require": {
+                "codeblog.pro/geo-coordinates": "^1.0",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "nunomaduro/phpinsights": "^1.14",
+                "phpstan/phpstan": "^0.12.47",
+                "phpunit/php-code-coverage": "^8.0",
+                "phpunit/phpunit": "^9.0.0",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CodeblogPro\\GeoLocationAddress\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Panov Alexey",
+                    "email": "panov@codeblog.pro",
+                    "homepage": "https://codeblog.pro/",
+                    "role": "Owner"
+                }
+            ],
+            "description": "The package provides an entity of geographic location address.",
+            "homepage": "https://github.com/PanovAlexey/geo-location-address",
+            "keywords": [
+                "codeblog.pro",
+                "geo",
+                "geo-location-address",
+                "geographical-coordinates",
+                "geolocation"
+            ],
+            "time": "2020-10-01T12:35:24+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2093,16 +2147,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.47",
+            "version": "0.12.48",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "74325a6ae15378db0df71b969ded245378d2e058"
+                "reference": "d364cfbac9ffd869570cdfea7eaa6541c3dac666"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/74325a6ae15378db0df71b969ded245378d2e058",
-                "reference": "74325a6ae15378db0df71b969ded245378d2e058",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d364cfbac9ffd869570cdfea7eaa6541c3dac666",
+                "reference": "d364cfbac9ffd869570cdfea7eaa6541c3dac666",
                 "shasum": ""
             },
             "require": {
@@ -2145,7 +2199,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-29T13:35:39+00:00"
+            "time": "2020-10-01T13:20:16+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace CodeblogPro\GeoCoder;
 
 use CodeblogPro\GeoCoordinates\Coordinates;
-use CodeblogPro\GeoCoder\Location\LocationInterface;
+use CodeblogPro\GeoLocationAddress\LocationInterface;
 use CodeblogPro\GeoCoder\Providers\ProviderInterface;
 
 class Geocoder

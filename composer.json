@@ -18,7 +18,8 @@
     "require": {
         "php" : ">=7.4",
         "guzzlehttp/guzzle": "^7.0",
-        "codeblog.pro/geo-coordinates": "^1.0.0"
+        "codeblog.pro/geo-coordinates": "^1.0.0",
+        "codeblog.pro/geo-location-address": "^0.0.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.0.0",
