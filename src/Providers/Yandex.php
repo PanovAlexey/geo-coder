@@ -149,7 +149,9 @@ class Yandex extends AbstractProvider implements ProviderInterface
             $coordinates,
             $country,
             $region,
-            $generalizingLocationArray['LocalityName'] ?? ''
+            $generalizingLocationArray['LocalityName'] ?? '',
+            $generalizingLocationArray['ThoroughfareName'] ?? '',
+            $generalizingLocationArray['PostalCodeNumber'] ?? '',
         );
     }
 }
