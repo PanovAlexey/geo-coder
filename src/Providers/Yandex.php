@@ -15,6 +15,13 @@ use CodeblogPro\GeoLocationAddress\Region;
 use CodeblogPro\GeoLocationAddress\Location;
 use CodeblogPro\GeoLocationAddress\LocationInterface;
 
+/**
+ * Class Yandex
+ * You can find out more about this provider API here:
+ * https://yandex.ru/dev/maps/geocoder/doc/desc/concepts/input_params.html
+ *
+ * @package CodeblogPro\GeoCoder\Providers
+ */
 class Yandex extends AbstractProvider implements ProviderInterface
 {
     private const ENDPOINT_URL = 'https://geocode-maps.yandex.ru/1.x/?format=json';
@@ -39,6 +46,7 @@ class Yandex extends AbstractProvider implements ProviderInterface
             $this->getHeaders(),
             self::HTTP_VERSION
         );
+
         $response = $this->client->sendRequest($request);
 
         return $this->getLocationByResponse($response);
@@ -46,6 +54,17 @@ class Yandex extends AbstractProvider implements ProviderInterface
 
     public function getLocationByAddress(string $address, string $locale = ''): LocationInterface
     {
+        $request = new Request(
+            $this->getMethod(),
+            self::ENDPOINT_URL . $this->getKeyUrlParam() . $this->getLocaleUrlParamByLocale($locale)
+            . $this->getAddressUrlParamByAddress($address) . $this->getSearchPrecisionUrlParam(),
+            $this->getBody(),
+            $this->getHeaders(),
+            self::HTTP_VERSION
+        );
+
+        $response = $this->client->sendRequest($request);
+
         return $this->getLocationByResponse($response);
     }
 
@@ -68,9 +87,24 @@ class Yandex extends AbstractProvider implements ProviderInterface
         return '&geocode=' . $coordinates->getLongitude() . ',' . $coordinates->getLatitude();
     }
 
+    private function getAddressUrlParamByAddress(string $address): string {
+        $addressResult = '';
+
+        foreach (explode(' ', $address) as $addressPart) {
+            if (!empty(trim($addressPart))) {
+                $addressResult .= '+' . trim($addressPart);
+            }
+        }
+
+        $addressResult = '&geocode=' . $addressResult;
+
+        return $addressResult;
+    }
+
     private function getSearchPrecisionUrlParam(): string
     {
-        return '&kind=locality';
+        // @ToDo: implement the ability to set the search accuracy. For example: return '&kind=locality';
+        return '';
     }
 
     private function getMethod(): string
