@@ -25,7 +25,7 @@ class GuzzleHttpClient implements HttpClientInterface
         return $this->getResponseByGuzzleResponse($guzzleResponse);
     }
 
-    private function getResponseByGuzzleResponse(\GuzzleHttp\Psr7\Response $guzzleResponse): ResponseInterface
+    private function getResponseByGuzzleResponse(\Psr\Http\Message\ResponseInterface $guzzleResponse): ResponseInterface
     {
         return new Response(
             $guzzleResponse->getStatusCode(),

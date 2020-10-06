@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace CodeblogPro\GeoCoder\Providers;
 
+use CodeblogPro\GeoCoder\Http\ResponseInterface;
 use CodeblogPro\GeoCoordinates\Coordinates;
 use CodeblogPro\GeoCoordinates\CoordinatesInterface;
-use CodeblogPro\GeoCoder\Exception\InvalidRequestException;
+use CodeblogPro\GeoCoder\Exceptions\InvalidRequestException;
 use CodeblogPro\GeoCoder\Http\HttpClientInterface;
 use CodeblogPro\GeoCoder\Http\Request;
-use CodeblogPro\GeoCoder\Http\Response;
 use CodeblogPro\GeoLocationAddress\Country;
 use CodeblogPro\GeoLocationAddress\Region;
 use CodeblogPro\GeoLocationAddress\Location;
@@ -87,7 +87,8 @@ class Yandex extends AbstractProvider implements ProviderInterface
         return '&geocode=' . $coordinates->getLongitude() . ',' . $coordinates->getLatitude();
     }
 
-    private function getAddressUrlParamByAddress(string $address): string {
+    private function getAddressUrlParamByAddress(string $address): string
+    {
         $addressResult = '';
 
         foreach (explode(' ', $address) as $addressPart) {
@@ -122,7 +123,7 @@ class Yandex extends AbstractProvider implements ProviderInterface
         return '';
     }
 
-    private function getLocationByResponse(Response $response): LocationInterface
+    private function getLocationByResponse(ResponseInterface $response): LocationInterface
     {
         $this->httpStatusCodeValidation((int)$response->getStatusCode());
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CodeblogPro\GeoCoder\Http;
 
-use CodeblogPro\GeoCoder\Exception\InvalidArgumentException;
+use CodeblogPro\GeoCoder\Exceptions\InvalidArgumentException;
 
 class Request implements RequestInterface
 {
@@ -12,11 +12,11 @@ class Request implements RequestInterface
     private const AVAILABLE_VERSIONS = ['1.0', '1.1', '2.0'];
     private string $method;
     private string $url;
-    private $body;
+    private string $body;
     private array $headers;
     private string $version;
 
-    public function __construct($method = '', $url, $body, $headers = [], $version = '1.1')
+    public function __construct(string $method, string $url, string $body, array $headers = [], string $version = '1.1')
     {
         $this->setMethodIsValid($method);
         $this->setUrlIsValid($url);
@@ -35,7 +35,7 @@ class Request implements RequestInterface
         return $this->url;
     }
 
-    public function getBody()
+    public function getBody(): string
     {
         return $this->body;
     }
@@ -50,7 +50,7 @@ class Request implements RequestInterface
         return $this->version;
     }
 
-    private function setMethodIsValid($method): void
+    private function setMethodIsValid(string $method): void
     {
         $method = mb_strtoupper(trim((string)$method));
 
@@ -64,7 +64,7 @@ class Request implements RequestInterface
         $this->method = $method;
     }
 
-    private function setUrlIsValid($url): void
+    private function setUrlIsValid(string $url): void
     {
         $url = trim((string)$url);
 
@@ -75,12 +75,12 @@ class Request implements RequestInterface
         $this->url = $url;
     }
 
-    private function setBody($body): void
+    private function setBody(string $body): void
     {
         $this->body = $body;
     }
 
-    private function setHeadersIsValid($headers): void
+    private function setHeadersIsValid(array $headers): void
     {
         if (!is_array($headers)) {
             throw new InvalidArgumentException('Headers must be an array type.');
@@ -89,7 +89,7 @@ class Request implements RequestInterface
         $this->headers = $headers;
     }
 
-    private function setVersionIsValid($version): void
+    private function setVersionIsValid(string $version): void
     {
         $version = trim((string)$version);
 

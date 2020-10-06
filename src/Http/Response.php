@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace CodeblogPro\GeoCoder\Http;
 
-use CodeblogPro\GeoCoder\Exception\InvalidArgumentException;
+use CodeblogPro\GeoCoder\Exceptions\InvalidArgumentException;
 
 class Response implements ResponseInterface
 {
     private int $statusCode;
-    private $body;
+    private string $body;
     private array $headers;
 
-    public function __construct($statusCode, $body, $headers = [])
+    public function __construct(int $statusCode, string $body, array $headers = [])
     {
         $this->setStatusCodeIsValid($statusCode);
         $this->setBody($body);
@@ -24,7 +24,7 @@ class Response implements ResponseInterface
         return $this->statusCode;
     }
 
-    public function getBody()
+    public function getBody(): string
     {
         return $this->body;
     }
@@ -34,7 +34,7 @@ class Response implements ResponseInterface
         return $this->headers;
     }
 
-    private function setStatusCodeIsValid($statusCode)
+    private function setStatusCodeIsValid(int $statusCode): void
     {
         $statusCode = (int)$statusCode;
 
@@ -45,12 +45,12 @@ class Response implements ResponseInterface
         $this->statusCode = $statusCode;
     }
 
-    private function setBody($body)
+    private function setBody(string $body): void
     {
         $this->body = $body;
     }
 
-    private function setHeadersIsValid($headers)
+    private function setHeadersIsValid(array $headers): void
     {
         if (!is_array($headers)) {
             throw new InvalidArgumentException('Headers must be an array type.');

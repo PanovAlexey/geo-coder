@@ -9,7 +9,7 @@ interface ResponseInterface
 {
     public function getStatusCode(): int;
 
-    public function getBody();
+    public function getBody(): string;
 
     public function getHeaders(): array;
 }

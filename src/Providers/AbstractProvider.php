@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace CodeblogPro\GeoCoder\Providers;
 
+use CodeblogPro\GeoCoder\Exceptions\InvalidRequestException;
+use CodeblogPro\GeoCoder\Exceptions\InvalidServerResponseException;
+use CodeblogPro\GeoCoder\Exceptions\RedirectionServerResponseException;
+
 abstract class AbstractProvider
 {
     public function getName(): string

@@ -11,7 +11,7 @@ interface RequestInterface
 
     public function getUri(): string;
 
-    public function getBody();
+    public function getBody(): string;
 
     public function getHeaders(): array;
 

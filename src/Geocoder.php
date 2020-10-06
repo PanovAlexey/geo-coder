@@ -19,7 +19,7 @@ class Geocoder
         $this->locale = $locale;
     }
 
-    public function getLocationByCoordinates($latitude, $longitude): LocationInterface
+    public function getLocationByCoordinates(float $latitude, float $longitude): LocationInterface
     {
         $coordinates = new Coordinates($latitude, $longitude);
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CodeblogPro\GeoCoder\Exception;
+namespace CodeblogPro\GeoCoder\Exceptions;
 
 class InvalidRequestException extends GeoCoderException
 {
