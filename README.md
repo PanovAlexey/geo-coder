@@ -7,7 +7,7 @@
 [![Total Downloads](https://poser.pugx.org/codeblog.pro/geo-coder/downloads)](https://packagist.org/packages/codeblog.pro/geo-coder)
 [![Version](https://poser.pugx.org/codeblog.pro/geo-coder/version)](https://packagist.org/packages/codeblog.pro/geo-coder)
 
-The geocoder package helps to determine the coordinates by an address or to get the address by the coordinates. Supports multiple providers.
+The geo-coder package helps to determine the coordinates by an address or to get the address by the coordinates. Supports multiple providers.
 
 ## Install
 
