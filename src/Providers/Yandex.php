@@ -133,8 +133,9 @@ class Yandex extends AbstractProvider implements ProviderInterface
 
         $body = json_decode($response->getBody(), true);
 
-        $resultsCount = isset($body['response']['GeoObjectCollection']['metaDataProperty']['GeocoderResponseMetaData']['results'])
-            ? (int)$body['response']['GeoObjectCollection']['metaDataProperty']['GeocoderResponseMetaData']['results']
+        $resultsCount = isset(
+            $body['response']['GeoObjectCollection']['metaDataProperty']['GeocoderResponseMetaData']['results']
+        ) ? (int)$body['response']['GeoObjectCollection']['metaDataProperty']['GeocoderResponseMetaData']['results']
             : 0;
 
         if ($resultsCount <= 0) {
@@ -153,7 +154,8 @@ class Yandex extends AbstractProvider implements ProviderInterface
         }
 
         if (!empty($body['response']['GeoObjectCollection']['metaDataProperty']['GeocoderResponseMetaData']['Point'])) {
-            $coordinatesString = $body['response']['GeoObjectCollection']['metaDataProperty']['GeocoderResponseMetaData']['Point']['pos'];
+            $metaDataProperty = $body['response']['GeoObjectCollection']['metaDataProperty'];
+            $coordinatesString = $metaDataProperty['GeocoderResponseMetaData']['Point']['pos'];
         }
 
         if (empty($coordinatesString)) {
