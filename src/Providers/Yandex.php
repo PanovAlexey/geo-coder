@@ -117,7 +117,9 @@ class Yandex extends AbstractProvider implements ProviderInterface
             );
         }
 
-        $coordinatesString = $body['response']['GeoObjectCollection']['metaDataProperty']['GeocoderResponseMetaData']['Point']['pos'];
+        if (!empty($body['response']['GeoObjectCollection']['metaDataProperty']['GeocoderResponseMetaData']['Point'])) {
+            $coordinatesString = $body['response']['GeoObjectCollection']['metaDataProperty']['GeocoderResponseMetaData']['Point']['pos'];
+        }
 
         if (empty($coordinatesString)) {
             $coordinatesString = $generalizingLocationArray['pos'];
