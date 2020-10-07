@@ -8,9 +8,9 @@ use CodeblogPro\GeoLocationAddress\LocationInterface;
 
 interface GeocoderInterface
 {
-    public function getLocationByCoordinates(): LocationInterface;
+    public function getLocationByCoordinates(float $latitude, float $longitude): LocationInterface;
 
-    public function getLocationByAddress(): LocationInterface;
+    public function getLocationByAddress(string $address): LocationInterface;
 
     public function getProviderName(): string;
 }

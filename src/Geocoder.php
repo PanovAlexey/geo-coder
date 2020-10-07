@@ -8,7 +8,7 @@ use CodeblogPro\GeoCoordinates\Coordinates;
 use CodeblogPro\GeoLocationAddress\LocationInterface;
 use CodeblogPro\GeoCoder\Providers\ProviderInterface;
 
-class Geocoder
+class Geocoder implements GeocoderInterface
 {
     private ProviderInterface $provider;
     private string $locale;
